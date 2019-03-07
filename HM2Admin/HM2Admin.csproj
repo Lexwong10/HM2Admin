@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FAF965FD-45CC-487A-9256-680CF5A7D954}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HM2Admin</RootNamespace>
+    <AssemblyName>HM2Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Contents\animate.min.css" />
+    <Content Include="Contents\bootstrap.min.css" />
+    <Content Include="Contents\global.css" />
+    <Content Include="Contents\html4.01.html" />
+    <Content Include="Contents\index.css" />
+    <Content Include="Contents\new_file.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\1.gif" />
+    <Content Include="Images\1.png" />
+    <Content Include="Images\144.png" />
+    <Content Include="Images\145.png" />
+    <Content Include="Images\146.png" />
+    <Content Include="Images\147.png" />
+    <Content Include="Images\18.png" />
+    <Content Include="Images\265.png" />
+    <Content Include="Images\48323.png" />
+    <Content Include="Images\50323.png" />
+    <Content Include="Images\53323.png" />
+    <Content Include="Images\54323.png" />
+    <Content Include="Images\55323.png" />
+    <Content Include="Images\56323.png" />
+    <Content Include="Images\57323.png" />
+    <Content Include="Images\58323.png" />
+    <Content Include="Images\60323.png" />
+    <Content Include="Images\62323.png" />
+    <Content Include="Images\64323.png" />
+    <Content Include="Images\65323.png" />
+    <Content Include="Images\66323.png" />
+    <Content Include="Images\67323.png" />
+    <Content Include="Images\68323.png" />
+    <Content Include="Images\7.png" />
+    <Content Include="Images\70323.png" />
+    <Content Include="Images\72323.png" />
+    <Content Include="Images\76323.png" />
+    <Content Include="Images\a1.png" />
+    <Content Include="Images\a10.png" />
+    <Content Include="Images\a11.png" />
+    <Content Include="Images\a12.png" />
+    <Content Include="Images\a13.png" />
+    <Content Include="Images\a14.png" />
+    <Content Include="Images\a15.png" />
+    <Content Include="Images\a16.png" />
+    <Content Include="Images\a17.png" />
+    <Content Include="Images\a18.png" />
+    <Content Include="Images\a19.png" />
+    <Content Include="Images\a2.png" />
+    <Content Include="Images\a20.png" />
+    <Content Include="Images\a21.png" />
+    <Content Include="Images\a22.png" />
+    <Content Include="Images\a23.png" />
+    <Content Include="Images\a3.png" />
+    <Content Include="Images\a4.png" />
+    <Content Include="Images\a5.png" />
+    <Content Include="Images\a6.png" />
+    <Content Include="Images\a7.png" />
+    <Content Include="Images\a8.png" />
+    <Content Include="Images\a9.png" />
+    <Content Include="Images\android-logo-1-e1381723555844.png" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\b1.png" />
+    <Content Include="Images\b10.png" />
+    <Content Include="Images\b11.png" />
+    <Content Include="Images\b12.png" />
+    <Content Include="Images\b13.png" />
+    <Content Include="Images\b14.png" />
+    <Content Include="Images\b15.png" />
+    <Content Include="Images\b16.png" />
+    <Content Include="Images\b17.png" />
+    <Content Include="Images\b18.png" />
+    <Content Include="Images\b19.png" />
+    <Content Include="Images\b2.png" />
+    <Content Include="Images\b20.png" />
+    <Content Include="Images\b21.png" />
+    <Content Include="Images\b22.png" />
+    <Content Include="Images\b23.png" />
+    <Content Include="Images\b24.png" />
+    <Content Include="Images\b25.png" />
+    <Content Include="Images\b26.png" />
+    <Content Include="Images\b3.png" />
+    <Content Include="Images\b4.png" />
+    <Content Include="Images\b5.png" />
+    <Content Include="Images\b6.png" />
+    <Content Include="Images\b7.png" />
+    <Content Include="Images\b8.png" />
+    <Content Include="Images\b9.png" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\bg5.jpg" />
+    <Content Include="Images\bogus.png" />
+    <Content Include="Images\bwf_logo.png" />
+    <Content Include="Images\c13.png" />
+    <Content Include="Images\c5.png" />
+    <Content Include="Images\c6.png" />
+    <Content Include="Images\checkmark.png" />
+    <Content Include="Images\d12.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\desktop.png" />
+    <Content Include="Images\Disc1.png" />
+    <Content Include="Images\Disc10.png" />
+    <Content Include="Images\Disc11.png" />
+    <Content Include="Images\Disc12.png" />
+    <Content Include="Images\Disc13.png" />
+    <Content Include="Images\Disc14.png" />
+    <Content Include="Images\Disc15.png" />
+    <Content Include="Images\Disc2.png" />
+    <Content Include="Images\Disc3.png" />
+    <Content Include="Images\Disc4.png" />
+    <Content Include="Images\Disc5.png" />
+    <Content Include="Images\Disc6.png" />
+    <Content Include="Images\Disc7.png" />
+    <Content Include="Images\Disc8.png" />
+    <Content Include="Images\Disc9.png" />
+    <Content Include="Images\down_arrow.png" />
+    <Content Include="Images\eject.png" />
+    <Content Include="Images\EmptyGreen2.png" />
+    <Content Include="Images\f1.png" />
+    <Content Include="Images\f10.png" />
+    <Content Include="Images\f11.png" />
+    <Content Include="Images\f12.png" />
+    <Content Include="Images\f13.png" />
+    <Content Include="Images\f14.png" />
+    <Content Include="Images\f15.png" />
+    <Content Include="Images\f16.png" />
+    <Content Include="Images\f17.png" />
+    <Content Include="Images\f18.png" />
+    <Content Include="Images\f19.png" />
+    <Content Include="Images\f2.png" />
+    <Content Include="Images\f20.png" />
+    <Content Include="Images\f21.png" />
+    <Content Include="Images\f22.png" />
+    <Content Include="Images\f3.png" />
+    <Content Include="Images\f4.png" />
+    <Content Include="Images\f5.png" />
+    <Content Include="Images\f6.png" />
+    <Content Include="Images\f7.png" />
+    <Content Include="Images\f8.png" />
+    <Content Include="Images\f9.png" />
+    <Content Include="Images\face.jpg" />
+    <Content Include="Images\foot.jpg" />
+    <Content Include="Images\forward.png" />
+    <Content Include="Images\g1.png" />
+    <Content Include="Images\g10.png" />
+    <Content Include="Images\g11.png" />
+    <Content Include="Images\g13.png" />
+    <Content Include="Images\g14.png" />
+    <Content Include="Images\g15.png" />
+    <Content Include="Images\g16.png" />
+    <Content Include="Images\g17.png" />
+    <Content Include="Images\g18.png" />
+    <Content Include="Images\g19.png" />
+    <Content Include="Images\g2.png" />
+    <Content Include="Images\g20.png" />
+    <Content Include="Images\g21.png" />
+    <Content Include="Images\g22.png" />
+    <Content Include="Images\g23.png" />
+    <Content Include="Images\g24.png" />
+    <Content Include="Images\g3.png" />
+    <Content Include="Images\g4.png" />
+    <Content Include="Images\g5.png" />
+    <Content Include="Images\g6.png" />
+    <Content Include="Images\g7.png" />
+    <Content Include="Images\g8.png" />
+    <Content Include="Images\g9.png" />
+    <Content Include="Images\gears.png" />
+    <Content Include="Images\grid.png" />
+    <Content Include="Images\grid48x48.png" />
+    <Content Include="Images\h1.png" />
+    <Content Include="Images\h10.png" />
+    <Content Include="Images\h11.png" />
+    <Content Include="Images\h12.png" />
+    <Content Include="Images\h13.png" />
+    <Content Include="Images\h14.png" />
+    <Content Include="Images\h15.png" />
+    <Content Include="Images\h16.png" />
+    <Content Include="Images\h19.png" />
+    <Content Include="Images\h2.png" />
+    <Content Include="Images\h3.png" />
+    <Content Include="Images\h4.png" />
+    <Content Include="Images\h5.png" />
+    <Content Include="Images\h7.png" />
+    <Content Include="Images\h8.png" />
+    <Content Include="Images\h9.png" />
+    <Content Include="Images\icon.png" />
+    <Content Include="Images\icons-bg.png" />
+    <Content Include="Images\icon_padlock.png" />
+    <Content Include="Images\im48x48.png" />
+    <Content Include="Images\item001a.png" />
+    <Content Include="Images\item001b.png" />
+    <Content Include="Images\item002a.png" />
+    <Content Include="Images\item002b.png" />
+    <Content Include="Images\item003a.png" />
+    <Content Include="Images\item003b.png" />
+    <Content Include="Images\item004a.png" />
+    <Content Include="Images\item004b.png" />
+    <Content Include="Images\item005a.png" />
+    <Content Include="Images\item005b.png" />
+    <Content Include="Images\item01.png" />
+    <Content Include="Images\item02.png" />
+    <Content Include="Images\j14.png" />
+    <Content Include="Images\j15.png" />
+    <Content Include="Images\j16.png" />
+    <Content Include="Images\k1.png" />
+    <Content Include="Images\k10.png" />
+    <Content Include="Images\k11.png" />
+    <Content Include="Images\k12.png" />
+    <Content Include="Images\k13.png" />
+    <Content Include="Images\k14.png" />
+    <Content Include="Images\k15.png" />
+    <Content Include="Images\k16.png" />
+    <Content Include="Images\k17.png" />
+    <Content Include="Images\k2.png" />
+    <Content Include="Images\k3.png" />
+    <Content Include="Images\k4.png" />
+    <Content Include="Images\k5.png" />
+    <Content Include="Images\k6.png" />
+    <Content Include="Images\k7.png" />
+    <Content Include="Images\k8.png" />
+    <Content Include="Images\k9.png" />
+    <Content Include="Images\l2.png" />
+    <Content Include="Images\l23.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logout.png" />
+    <Content Include="Images\m1.png" />
+    <Content Include="Images\m10.png" />
+    <Content Include="Images\m11.png" />
+    <Content Include="Images\m12.png" />
+    <Content Include="Images\m13.png" />
+    <Content Include="Images\m14.png" />
+    <Content Include="Images\m15.png" />
+    <Content Include="Images\m16.png" />
+    <Content Include="Images\m17.png" />
+    <Content Include="Images\m18.png" />
+    <Content Include="Images\m19.png" />
+    <Content Include="Images\m2.png" />
+    <Content Include="Images\m20.png" />
+    <Content Include="Images\m3.png" />
+    <Content Include="Images\m4.png" />
+    <Content Include="Images\m5.png" />
+    <Content Include="Images\m6.png" />
+    <Content Include="Images\m7.png" />
+    <Content Include="Images\m8.png" />
+    <Content Include="Images\m9.png" />
+    <Content Include="Images\member.png" />
+    <Content Include="Images\play.png" />
+    <Content Include="Images\plus.png" />
+    <Content Include="Images\powered.png" />
+    <Content Include="Images\q10.png" />
+    <Content Include="Images\repeat.png" />
+    <Content Include="Images\rewind.png" />
+    <Content Include="Images\right.png" />
+    <Content Include="Images\rrow.png" />
+    <Content Include="Images\skip_backward.png" />
+    <Content Include="Images\stop.png" />
+    <Content Include="Images\w7.png" />
+    <Content Include="Images\ward.png" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\Calendar3.js" />
+    <Content Include="scripts\global.js" />
+    <Content Include="scripts\jquery-1.8.3.min.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\wow.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56543</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56543/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
