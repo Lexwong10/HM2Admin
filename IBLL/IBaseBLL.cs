@@ -95,5 +95,6 @@ namespace IBLL
     public partial interface IOrderBLL : IBaseBLL<Order> { }
     public partial interface IAreaBLL : IBaseBLL<Area> { }
     public partial interface IOrderDetailBLL : IBaseBLL<OrderDetail> { }
+    public partial interface IAdminBLL : IBaseBLL<Admin> { }
 }
 

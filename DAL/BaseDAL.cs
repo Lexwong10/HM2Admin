@@ -114,4 +114,5 @@ namespace DAL
     public partial class OrderDAL : BaseDAL<Order>, IOrderDAL { }
     public partial class AreaDAL : BaseDAL<Area>, IAreaDAL { }
     public partial class OrderDetailDAL : BaseDAL<OrderDetail>, IOrderDetailDAL { }
+    public partial class AdminDAL : BaseDAL<Admin>, IAdminDAL { }
 }

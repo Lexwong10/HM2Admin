@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBLL.cs" />
+    <Compile Include="BaseBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9BB62FE7-E1F9-439F-AD4E-990DC027373C}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{4daffef3-b658-4153-bf07-3ee782457be2}</Project>
       <Name>IBLL</Name>

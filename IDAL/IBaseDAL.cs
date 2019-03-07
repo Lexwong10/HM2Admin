@@ -96,4 +96,5 @@ namespace IDAL
     public partial interface IOrderDAL : IBaseDAL<Order> { }
     public partial interface IAreaDAL : IBaseDAL<Area> { }
     public partial interface IOrderDetailDAL : IBaseDAL<OrderDetail> { }
+    public partial interface IAdminDAL : IBaseDAL<Admin> { }
 }
