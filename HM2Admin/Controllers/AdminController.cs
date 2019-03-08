@@ -30,7 +30,9 @@ namespace HM2Admin.Controllers
                     Result = Common.ResultType.Error,
                     ErrorTips = "用户或密码错误"
                 });
+                
             }
+            Session.Add("admin", result.FirstOrDefault());
             return RedirectToAction("Index","Index");
         }
     }

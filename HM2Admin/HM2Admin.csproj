@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -362,6 +370,70 @@
     <Content Include="Images\play.png" />
     <Content Include="Images\plus.png" />
     <Content Include="Images\powered.png" />
+    <Content Include="Images\ProductImg\1_h_1.jpg" />
+    <Content Include="Images\ProductImg\1_h_2.jpg" />
+    <Content Include="Images\ProductImg\1_h_3.jpg" />
+    <Content Include="Images\ProductImg\1_h_5.jpg" />
+    <Content Include="Images\ProductImg\1_h_4.jpg" />
+    <Content Include="Images\ProductImg\1_jh_1.jpg" />
+    <Content Include="Images\ProductImg\1_jh_2.jpg" />
+    <Content Include="Images\ProductImg\1_jh_3.jpg" />
+    <Content Include="Images\ProductImg\1_jh_4.jpg" />
+    <Content Include="Images\ProductImg\1_jh_5.jpg" />
+    <Content Include="Images\ProductImg\1_jh_6.jpg" />
+    <Content Include="Images\ProductImg\2_fh_1.jpg" />
+    <Content Include="Images\ProductImg\2_fh_2.jpg" />
+    <Content Include="Images\ProductImg\2_fh_3.jpg" />
+    <Content Include="Images\ProductImg\2_fh_4.jpg" />
+    <Content Include="Images\ProductImg\2_fh_5.jpg" />
+    <Content Include="Images\ProductImg\2_fh_6.jpg" />
+    <Content Include="Images\ProductImg\3_h_1.jpg" />
+    <Content Include="Images\ProductImg\3_h_2.jpg" />
+    <Content Include="Images\ProductImg\3_h_3.jpg" />
+    <Content Include="Images\ProductImg\3_h_4.jpg" />
+    <Content Include="Images\ProductImg\3_h_5.jpg" />
+    <Content Include="Images\ProductImg\3_h_6.jpg" />
+    <Content Include="Images\ProductImg\4_hei_1.jpg" />
+    <Content Include="Images\ProductImg\4_hei_2.jpg" />
+    <Content Include="Images\ProductImg\4_hei_3.jpg" />
+    <Content Include="Images\ProductImg\4_hei_4.jpg" />
+    <Content Include="Images\ProductImg\4_hei_5.jpg" />
+    <Content Include="Images\ProductImg\4_hei_6.jpg" />
+    <Content Include="Images\ProductImg\4_h_1.jpg" />
+    <Content Include="Images\ProductImg\4_h_2.jpg" />
+    <Content Include="Images\ProductImg\4_h_3.jpg" />
+    <Content Include="Images\ProductImg\4_h_4.jpg" />
+    <Content Include="Images\ProductImg\4_h_5.jpg" />
+    <Content Include="Images\ProductImg\4_h_6.jpg" />
+    <Content Include="Images\ProductImg\5_hh_1.jpg" />
+    <Content Include="Images\ProductImg\5_hh_2.jpg" />
+    <Content Include="Images\ProductImg\5_hh_3.jpg" />
+    <Content Include="Images\ProductImg\5_hh_4.jpg" />
+    <Content Include="Images\ProductImg\5_hh_5.jpg" />
+    <Content Include="Images\ProductImg\5_hh_6.jpg" />
+    <Content Include="Images\ProductImg\6_b_1.jpg" />
+    <Content Include="Images\ProductImg\6_b_2.jpg" />
+    <Content Include="Images\ProductImg\6_b_3.jpg" />
+    <Content Include="Images\ProductImg\6_b_4.jpg" />
+    <Content Include="Images\ProductImg\6_b_5.jpg" />
+    <Content Include="Images\ProductImg\7_h_1.jpg" />
+    <Content Include="Images\ProductImg\7_h_2.jpg" />
+    <Content Include="Images\ProductImg\7_h_3.jpg" />
+    <Content Include="Images\ProductImg\7_h_4.jpg" />
+    <Content Include="Images\ProductImg\7_h_5.jpg" />
+    <Content Include="Images\ProductImg\7_h_6.jpg" />
+    <Content Include="Images\ProductImg\8_h_1.jpg" />
+    <Content Include="Images\ProductImg\8_h_2.jpg" />
+    <Content Include="Images\ProductImg\8_h_3.jpg" />
+    <Content Include="Images\ProductImg\8_h_4.jpg" />
+    <Content Include="Images\ProductImg\8_h_5.jpg" />
+    <Content Include="Images\ProductImg\8_h_6.jpg" />
+    <Content Include="Images\ProductImg\9_h_1.jpg" />
+    <Content Include="Images\ProductImg\9_h_2.jpg" />
+    <Content Include="Images\ProductImg\9_h_3.jpg" />
+    <Content Include="Images\ProductImg\9_h_4.jpg" />
+    <Content Include="Images\ProductImg\9_h_5.jpg" />
+    <Content Include="Images\ProductImg\9_h_6.jpg" />
     <Content Include="Images\q10.png" />
     <Content Include="Images\repeat.png" />
     <Content Include="Images\rewind.png" />
@@ -385,6 +457,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Filters\LoginFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -400,6 +474,8 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Index\Home.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -409,7 +485,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -431,6 +506,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{4D11262B-B1A6-46BB-9162-47D232713A1A}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{4E337F09-D6EB-422D-A99D-043532F03D7A}</Project>
+      <Name>ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

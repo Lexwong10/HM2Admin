@@ -36,6 +36,8 @@
         <AssociationConnector Association="HM2Model.FK__Product__TypeId__1FCDBCEB" ManuallyRouted="false" />
         <AssociationConnector Association="HM2Model.FK__ProductIm__Produ__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="HM2Model.FK__ProductType__Pid__1CF15040" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HM2Model.Menu" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="HM2Model.FK__Menu__ParentId__5CD6CB2B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

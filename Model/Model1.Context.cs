@@ -38,5 +38,6 @@ namespace Model
         public virtual DbSet<ProductSize> ProductSize { get; set; }
         public virtual DbSet<ProductType> ProductType { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
     }
 }

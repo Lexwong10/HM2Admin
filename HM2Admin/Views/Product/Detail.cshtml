@@ -1,0 +1,116 @@
+﻿@model Model.Product
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                商品编号
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+
+            <dt>
+                商品名称
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                旧价格
+            </dt>
+    
+            <dd>
+                ￥@Html.DisplayFor(model => model.OldPrice)
+            </dd>
+    
+            <dt>
+                新价格
+            </dt>
+    
+            <dd>
+                ￥@Html.DisplayFor(model => model.NewPrice)
+            </dd>
+    
+            <dt>
+                商品详情
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Detail)
+            </dd>
+    
+            <dt>
+                销量
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sold)
+            </dd>
+    
+            <dt>
+                库存
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+    
+            <dt>
+                商品状态
+            </dt>
+    
+            <dd>
+                @if (Model.OnSale == 0)
+                {
+                    <text>下架</text>
+                }
+                else if (Model.OnSale == 1)
+                {
+                    <text>上架</text>
+                }
+            </dd>
+    
+            <dt>
+                商品颜色
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProductColor.Name)
+            </dd>
+    
+            <dt>
+                商品尺码
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProductSize.Name)
+            </dd>
+    
+            <dt>
+                商品类型
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProductType.Name)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("回到商品列表", "List")
+    </p>
+</body>
+</html>

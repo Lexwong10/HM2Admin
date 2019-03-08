@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="AdminBLL.cs" />
     <Compile Include="BaseBLL.cs" />
+    <Compile Include="MenuBLL.cs" />
+    <Compile Include="ProductBLL.cs" />
+    <Compile Include="ProductTypeBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

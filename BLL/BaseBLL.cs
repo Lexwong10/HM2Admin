@@ -54,7 +54,7 @@ namespace BLL
             return dal.GetCount();
         }
 
-        public T GetById(int? id)
+        public T GetById(int id)
         {
             return dal.GetById(id);
         }

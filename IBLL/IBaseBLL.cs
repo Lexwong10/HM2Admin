@@ -60,7 +60,7 @@ namespace IBLL
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns></returns>
-        T GetById(int? id);
+        T GetById(int id);
 
         /// <summary>
         /// 根据筛选条件拿出说有数据
@@ -96,5 +96,6 @@ namespace IBLL
     public partial interface IAreaBLL : IBaseBLL<Area> { }
     public partial interface IOrderDetailBLL : IBaseBLL<OrderDetail> { }
     public partial interface IAdminBLL : IBaseBLL<Admin> { }
+    public partial interface IMenuBLL : IBaseBLL<Menu> { }
 }
 

@@ -64,7 +64,7 @@ namespace DAL
         }
 
 
-        public T GetById(int? id)
+        public T GetById(int id)
         {
             return db.Set<T>().Find(id);
         }
@@ -115,4 +115,5 @@ namespace DAL
     public partial class AreaDAL : BaseDAL<Area>, IAreaDAL { }
     public partial class OrderDetailDAL : BaseDAL<OrderDetail>, IOrderDetailDAL { }
     public partial class AdminDAL : BaseDAL<Admin>, IAdminDAL { }
+    public partial class MenuDAL : BaseDAL<Menu>, IMenuDAL { }
 }

@@ -61,7 +61,7 @@ namespace IDAL
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns></returns>
-        T GetById(int? id);
+        T GetById(int id);
 
         /// <summary>
         /// 根据筛选条件拿出说有数据
@@ -97,4 +97,5 @@ namespace IDAL
     public partial interface IAreaDAL : IBaseDAL<Area> { }
     public partial interface IOrderDetailDAL : IBaseDAL<OrderDetail> { }
     public partial interface IAdminDAL : IBaseDAL<Admin> { }
+    public partial interface IMenuDAL : IBaseDAL<Menu> { }
 }
