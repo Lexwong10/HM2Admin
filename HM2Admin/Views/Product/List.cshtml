@@ -1,7 +1,31 @@
 ﻿@using Model
 @model List<Product>
-@{ 
+@{
     List<ProductType> productType = ViewBag.productType;
+    var asc = Request.QueryString["Asc"];
+    var key = Request.QueryString["Key"];
+    var orderField = Request.QueryString["OrderField"];
+    var typeId = Request.QueryString["TypeId"];
+    string ascUrl = "";
+    string keyUrl = "";
+    string orderFieldUrl = "";
+    string typeIdUrl = "";
+    if (asc != null)
+    {
+        ascUrl = "&Asc=" + asc;
+    }
+    if (key != null)
+    {
+        keyUrl = "&Key=" + key;
+    }
+    if (orderField != null)
+    {
+        orderFieldUrl = "&OrderField=" + orderField;
+    }
+    if (typeId != null)
+    {
+        typeIdUrl = "&TypeId=" + typeId;
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -77,11 +101,11 @@
                 时间：2017-09-25
                 描述：搜索条件
             -->
-            <form action="" method="POST" role="form" name="form1">
+            <form action="/Product/List" method="get" role="form" name="form1">
                 <div class="row row-where">
 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <input type="text" name="" class="form-control" placeholder="文本搜索" />
+                        <input type="text" name="Key" class="form-control" placeholder="文本搜索"  value="@Request.QueryString["Key"]"/>
                     </div>
 
                     <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
@@ -168,9 +192,9 @@
                                     <td>@p.Sold</td>
                                     <td>@p.Stock</td>
                                     <td>@if (p.OnSale == 0)
-                                                    {<text>下架</text>}
-                                                        else if (p.OnSale == 1)
-                                                            {<text>销售中</text> }
+                                    {<span class="text-danger">@{<text>下架</text>}</span>}
+                                    else if (p.OnSale == 1)
+                                    {<span class="text-success">@{<text>销售中</text>}</span>}
                                                 </td>
                                      <td width="120px">
                                             <span class="btn-group btn-group-xs">
@@ -194,7 +218,7 @@
                     <div class="btn-group btn-group-sm">
                         <button type="button" class="btn btn-darkgreen">
                             <span class="hidden-xs hidden-sm">
-                                <a href="/Product/List?OrderField=@Request.QueryString["OrderField"]&TypeId=@Request.QueryString["TypeId"]&Page=1">
+                                <a href="/Product/List?Page=1 @ascUrl@keyUrl@orderFieldUrl@typeIdUrl">
                                     首 页
                                 </a>
                             </span>
@@ -203,9 +227,8 @@
                         </button>
                         <button type="button" class="btn btn-darkgreen">
                             <span class="hidden-xs hidden-sm"> 
-                                <a href="/Product/List?OrderField=@Request.QueryString["OrderField"]&TypeId=@Request.QueryString["TypeId"]&Page=
-                                   @if (ViewBag.currentPage - 1 <= 0) { <text>1</text>}
-                                   else { <text>@(ViewBag.currentPage - 1)</text>}" >
+                                <a href="/Product/List?&Page= @if (ViewBag.currentPage - 1 <= 0) { <text>1</text>}
+                                   else { <text>@(ViewBag.currentPage - 1)</text>}@ascUrl@keyUrl@orderFieldUrl@typeIdUrl" >
                                     上一页
                                  </a>
                             </span>
@@ -222,14 +245,14 @@
                             else
                             { 
                                 <button type="button" class="btn btn-default hidden-xs hidden-sm">
-                                        <a href="/Product/List?OrderField=@Request.QueryString["OrderField"]&TypeId=@Request.QueryString["TypeId"]&Page=@i">@i</a>
+                                        <a href="/Product/List?&Page=@i@ascUrl@keyUrl@orderFieldUrl@typeIdUrl">@i</a>
                                 </button>}
                             }
                         <button type="button" class="btn btn-darkgreen">
                             <span class="hidden-xs hidden-sm">
-                                <a href="/Product/List?OrderField=@Request.QueryString["OrderField"]&TypeId=@Request.QueryString["TypeId"]&Page=
-                                   @if (ViewBag.currentPage + 1 >= ViewBag.totalPage) { <text>@ViewBag.totalPage</text>}
-                                   else { <text>@(ViewBag.currentPage + 1)</text>}">
+                                <a href="/Product/List?Page=@if (ViewBag.currentPage + 1 >= ViewBag.totalPage)   { <text>@ViewBag.totalPage</text>}
+                                   else
+                                   { <text>@(ViewBag.currentPage + 1)</text>}@ascUrl@keyUrl@orderFieldUrl@typeIdUrl">
                                     下一页
                                 </a> 
                             </span>
@@ -237,7 +260,7 @@
                         </button>
                         <button type="button" class="btn btn-darkgreen">
                             <span class="hidden-xs hidden-sm"> 
-                                <a href="/Product/List?OrderField=@Request.QueryString["OrderField"]&TypeId=@Request.QueryString["TypeId"]&Page=@ViewBag.totalPage">
+                                <a href="/Product/List?Page=@ViewBag.totalPage@ascUrl@keyUrl@orderFieldUrl@typeIdUrl">
                                     末页
                                 </a>
                             </span>

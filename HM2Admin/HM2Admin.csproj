@@ -128,9 +128,7 @@
     <Content Include="Contents\animate.min.css" />
     <Content Include="Contents\bootstrap.min.css" />
     <Content Include="Contents\global.css" />
-    <Content Include="Contents\html4.01.html" />
     <Content Include="Contents\index.css" />
-    <Content Include="Contents\new_file.html" />
     <Content Include="Global.asax" />
     <Content Include="Images\1.gif" />
     <Content Include="Images\1.png" />
@@ -346,6 +344,7 @@
     <Content Include="Images\l23.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\logout.png" />
+    <Content Include="Images\Logo\hmlogo.jpg" />
     <Content Include="Images\m1.png" />
     <Content Include="Images\m10.png" />
     <Content Include="Images\m11.png" />
@@ -476,6 +475,7 @@
     <Content Include="Views\Index\Home.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

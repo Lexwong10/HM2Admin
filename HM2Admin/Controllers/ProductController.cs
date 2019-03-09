@@ -17,7 +17,7 @@ namespace HM2Admin.Controllers
 
         public const int PAGE_SIZE = 3;
         //查看商品列表
-        public ActionResult List(int? Page , int? TypeId , string OrderField , int? Asc)
+        public ActionResult List(int? Page , int? TypeId , string OrderField , int? Asc ,string Key)
         {
             if (Page == null)
             {
@@ -33,12 +33,11 @@ namespace HM2Admin.Controllers
             {
                 OrderField = "Id";
             }
+
             bool asc = true;
-            if (Asc == 1)
+
+            if (Asc == null)
             {
-                asc = false;
-            }
-            else {
                 asc = true;
             }
 
@@ -48,6 +47,10 @@ namespace HM2Admin.Controllers
                 whereExpression = p => p.ProductType.Id == TypeId || p.ProductType.ProductType2.Id == TypeId;
             }
 
+            if (Key != null)
+            {
+                whereExpression = p => p.Detail.Contains(Key);
+            }
             var totalProduct = productBLL.GetBySituation(whereExpression).Count();
             ViewBag.totalPage = Math.Ceiling(totalProduct * 1.0 / PAGE_SIZE );
             ViewBag.currentPage = Page;
@@ -64,6 +67,11 @@ namespace HM2Admin.Controllers
         //查看商品详情
         public ActionResult Detail(int id) {
             return View(productBLL.GetById(id));
+        }
+
+        //新增商品
+        public ActionResult Create() {
+            return View();
         }
     }
 }

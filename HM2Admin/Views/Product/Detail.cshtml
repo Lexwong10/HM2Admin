@@ -105,6 +105,17 @@
             <dd>
                 @Html.DisplayFor(model => model.ProductType.Name)
             </dd>
+
+            <dt>
+                商品图片
+            </dt>
+
+            <dd>
+                @foreach (var img in Model.ProductImg)
+                {
+                    <img src="~/Images/ProductImg/@img.BigImage"  width="150" height="200"/>
+                }
+            </dd>
     
         </dl>
     </div>
