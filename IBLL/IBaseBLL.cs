@@ -15,7 +15,7 @@ namespace IBLL
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        void Add(T entity);
+        T Add(T entity);
 
         /// <summary>
         /// 根据主键删
@@ -91,6 +91,9 @@ namespace IBLL
     public partial interface IProductBLL : IBaseBLL<Product> { }
     public partial interface ICartBLL : IBaseBLL<Cart> { }
     public partial interface IProductTypeBLL : IBaseBLL<ProductType> { }
+    public partial interface IProductSizeBLL : IBaseBLL<ProductSize> { }
+    public partial interface IProductColorBLL : IBaseBLL<ProductColor> { }
+    public partial interface IProductImgBLL : IBaseBLL<ProductImg> { }
     public partial interface IAddressBLL : IBaseBLL<Address> { }
     public partial interface IOrderBLL : IBaseBLL<Order> { }
     public partial interface IAreaBLL : IBaseBLL<Area> { }

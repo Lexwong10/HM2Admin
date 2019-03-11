@@ -17,9 +17,9 @@ namespace BLL
             this.dal = dal;
         }
 
-        public void Add(T t)
+        public T Add(T t)
         {
-            dal.Add(t);
+            return dal.Add(t);
         }
 
         public void DeleteById(int id)

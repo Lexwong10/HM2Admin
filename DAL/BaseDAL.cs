@@ -110,6 +110,9 @@ namespace DAL
     public partial class ProductDAL : BaseDAL<Product>, IProductDAL { }
     public partial class CartDAL : BaseDAL<Cart>, ICartDAL { }
     public partial class ProductTypeDAL : BaseDAL<ProductType>, IProductTypeDAL { }
+    public partial class ProductSizeDAL : BaseDAL<ProductSize>, IProductSizeDAL { }
+    public partial class ProductColorDAL : BaseDAL<ProductColor>, IProductColorDAL { }
+    public partial class ProductImgDAL : BaseDAL<ProductImg>, IProductImgDAL { }
     public partial class AddressDAL : BaseDAL<Address>, IAddressDAL { }
     public partial class OrderDAL : BaseDAL<Order>, IOrderDAL { }
     public partial class AreaDAL : BaseDAL<Area>, IAreaDAL { }

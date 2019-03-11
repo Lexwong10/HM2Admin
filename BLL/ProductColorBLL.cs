@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ProductBLL : BaseBLL<Product>, IProductBLL
+    public class ProductColorBLL : BaseBLL<ProductColor>, IProductColorBLL
     {
-        IProductDAL productDAL = new ProductDAL();
+        IProductColorDAL productColorDAL = new ProductColorDAL();
 
-        public ProductBLL()
+        public ProductColorBLL()
         {
-            this.SetDal(productDAL);
+            this.SetDal(productColorDAL);
         }
-
-        
     }
 }

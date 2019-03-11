@@ -2,6 +2,7 @@
 using IBLL;
 using Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -14,6 +15,9 @@ namespace HM2Admin.Controllers
     {
         public IProductBLL productBLL = new ProductBLL();
         public IProductTypeBLL productTypeBLL = new ProductTypeBLL();
+        public IProductSizeBLL productSizeBLL = new ProductSizeBLL();
+        public IProductColorBLL productColorBLL = new ProductColorBLL();
+        public IProductImgBLL productImgBLL = new ProductImgBLL();
 
         public const int PAGE_SIZE = 3;
         //查看商品列表
@@ -69,9 +73,48 @@ namespace HM2Admin.Controllers
             return View(productBLL.GetById(id));
         }
 
+
         //新增商品
+        [HttpGet]
         public ActionResult Create() {
+            ViewBag.ProductType = productTypeBLL.GetAll();
+            ViewBag.ProductSize = productSizeBLL.GetAll();
+            ViewBag.ProductColor = productColorBLL.GetAll();
             return View();
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Create(Product p, IEnumerable<HttpPostedFileBase> Images) {
+            if (p.OnSale == null)
+            {
+                p.OnSale = 0;
+            }
+            else {
+                p.OnSale = 1;
+            }
+            string path = Server.MapPath("~/Images/ProductImg/");
+            int productId = productBLL.Add(p).Id;
+            List<string> bigName = Common.ImagesHelper.ImagesSave(Images, path);
+            List<string> smallName = Common.ImagesHelper.smallImage(Images, path);
+
+            for (int i = 0; i < bigName.Count; i++)
+            {
+                productImgBLL.Add(new ProductImg
+                {
+                    ProductId = productId,
+                    BigImage = bigName[i],
+                    SmallImage = smallName[i]
+                });
+            }
+            
+            return RedirectToAction("List");
+        }
+
+        //编辑商品
+        public ActionResult Edit(int id) {
+           var list =  productBLL.GetById(id);
+          return View(list);
         }
     }
 }

@@ -92,6 +92,9 @@ namespace IDAL
     public partial interface IProductDAL : IBaseDAL<Product> { }
     public partial interface ICartDAL : IBaseDAL<Cart> { }
     public partial interface IProductTypeDAL : IBaseDAL<ProductType> { }
+    public partial interface IProductSizeDAL : IBaseDAL<ProductSize> { }
+    public partial interface IProductColorDAL : IBaseDAL<ProductColor> { }
+    public partial interface IProductImgDAL : IBaseDAL<ProductImg> { }
     public partial interface IAddressDAL : IBaseDAL<Address> { }
     public partial interface IOrderDAL : IBaseDAL<Order> { }
     public partial interface IAreaDAL : IBaseDAL<Area> { }
