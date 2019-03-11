@@ -21,7 +21,7 @@ namespace HM2Admin.Controllers
 
         public const int PAGE_SIZE = 3;
         //查看商品列表
-        public ActionResult List(int? Page , int? TypeId , string OrderField , int? Asc ,string Key)
+        public ActionResult List(int? Page, int? TypeId, string OrderField, int? Asc, string Key)
         {
             if (Page == null)
             {
@@ -56,7 +56,7 @@ namespace HM2Admin.Controllers
                 whereExpression = p => p.Detail.Contains(Key);
             }
             var totalProduct = productBLL.GetBySituation(whereExpression).Count();
-            ViewBag.totalPage = Math.Ceiling(totalProduct * 1.0 / PAGE_SIZE );
+            ViewBag.totalPage = Math.Ceiling(totalProduct * 1.0 / PAGE_SIZE);
             ViewBag.currentPage = Page;
 
 
@@ -107,14 +107,53 @@ namespace HM2Admin.Controllers
                     SmallImage = smallName[i]
                 });
             }
-            
+
             return RedirectToAction("List");
         }
 
         //编辑商品
+        [HttpGet]
         public ActionResult Edit(int id) {
-           var list =  productBLL.GetById(id);
-          return View(list);
+            var list = productBLL.GetById(id);
+            ViewBag.ProductType = productTypeBLL.GetAll();
+            ViewBag.ProductSize = productSizeBLL.GetAll();
+            ViewBag.ProductColor = productColorBLL.GetAll();
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult EditById()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(Product p, int? OnSale) {
+            if (OnSale == null || OnSale == 0)
+            {
+                p.OnSale = 0;
+            }
+            else {
+                p.OnSale = 1;
+            }
+            productBLL.Modify(p, "Name", "TypeId", "OldPrice", "NewPrice", "ColorId", "SizeId", "Detail", "Sold", "Stock", "OnSale");
+
+            return RedirectToAction("List");
+        }
+
+        //删除商品
+        public ActionResult Delete(int id) {
+            Product  p = productBLL.GetById(id);
+            p.OnSale = 2;
+            productBLL.Modify(p, "OnSale");
+            return RedirectToAction("List");
+        }
+
+
+        public ActionResult DeleteById() {
+            return View();
         }
     }
 }

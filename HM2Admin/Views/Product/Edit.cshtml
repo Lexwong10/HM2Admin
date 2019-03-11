@@ -31,13 +31,13 @@
 
         });
 
-        //function checkNum() {
-        //    if ($('.switch-anim').prop('checked')) {
-        //        $('input[name=OnSale]').val(1);
-        //    } else {
-        //        $('input[name=OnSale]').val(0);
-        //    }
-        //}
+        function checkNum() {
+            if ($('.switch-anim').prop('checked')) {
+                $('input[name=OnSale]').val(1);
+            } else {
+                $('input[name=OnSale]').val(0);
+            }
+        }
 
     </script>
     <style>
@@ -103,6 +103,9 @@
                     .switch.switch-anim:checked:before {
                         transition: left 0.3s;
                     }
+        #file {
+            margin-top:10px;
+        }
     </style>
 </head>
 <body>
@@ -113,8 +116,9 @@
         </div>
         <div class="panel-body">
 
-            <form action="/Product/Create" method="post" role="form" enctype="multipart/form-data">
+            <form action="/Product/Edit" method="post" role="form" enctype="multipart/form-data">
                 @*<input type="hidden" name="Detail" />*@
+                @Html.HiddenFor(model => model.Id)
                 <div class="panel panel-default panel-step">
                     <div class="panel-heading panel-step-head" style="background-color: transparent; ">
                         <div class="panel-step-btn-group">
@@ -130,44 +134,44 @@
                             <label>商品名称:</label>
                             <input type="text" name="Name" class="form-control input" value="@Model.Name" />
                             <label>商品旧价格(￥):</label>
-                            <input type="number" min="0" value="0" name="OldPrice" class="form-control input" />
+                            <input type="number" min="0" value="@Model.OldPrice" name="OldPrice" class="form-control input" />
                             <label>商品新价格(￥):</label>
-                            <input type="number" min="0" value="0" name="NewPrice" class="form-control input" />
+                            <input type="number" min="0" value="@Model.NewPrice" name="NewPrice" class="form-control input" />
                             <label>商品类型:</label>
                             <select class="form-control input" name="TypeId">
                                 <option value="-1">请选择商品类型</option>
-                                @*@foreach (var level1 in ViewBag.ProductType)
+                                @foreach (var level1 in ViewBag.ProductType)
                                 {
                                     foreach (var level2 in level1.ProductType1)
                                     {
-                                        <option value="@level2.Id">@level1.Name -- @level2.Name</option>
+                                        <option value="@level2.Id" @if (level2.Id == Model.TypeId) { <text>selected="selected"</text>}>@level1.Name -- @level2.Name</option>
                                     }
 
-                                }*@
+                                }
 
                             </select>
                             <label>商品颜色:</label>
                             <select class="form-control input" name="ColorId">
-                                @*@foreach (var c in ViewBag.ProductSize)
+                                @foreach (var c in ViewBag.ProductColor)
                                 {
-                                    <option value="@c.Id">@c.Name</option>
-                                }*@
+                                    <option value="@c.Id" @if (c.Id == Model.ColorId) { <text>selected="selected"</text>}>@c.Name</option>
+                                }
                             </select>
                             <label>商品尺寸:</label>
                             <select class="form-control input" name="SizeId">
-                                @*@foreach (var s in ViewBag.ProductColor)
+                                @foreach (var s in ViewBag.ProductSize)
                                 {
-                                    <option value="@s.Id">@s.Name</option>
-                                }*@
+                                    <option value="@s.Id" @if (s.Id == Model.SizeId) { <text> selected="selected" </text>  }>@s.Name</option>
+                                }
                             </select>
 
                             <label>商品销量:</label>
-                            <input class="form-control number" value="0" type="number" name="Sold" min="0" />
+                            <input class="form-control number" value="@Model.Sold" type="number" name="Sold" min="0" />
 
                             <label>商品库存:</label>
-                            <input class="form-control number" value="0" type="number" name="Stock" min="0" />
+                            <input class="form-control number" value="@Model.Stock" type="number" name="Stock" min="0" />
                             <label>商品状态:</label><br />
-                            <b>下架</b>&nbsp;<input name="OnSale" class="switch switch-anim" type="checkbox" checked>&nbsp;<b>上架</b>
+                            <b>下架</b>&nbsp;<input name="OnSale" onclick="checkNum();" class="switch switch-anim" type="checkbox" @if (Model.OnSale == 1) { <text>checked="checked"</text>}>&nbsp;<b>上架</b>
                         </div>
                     </div>
 
@@ -175,14 +179,18 @@
                     @*第二步*@
                     <div class="panel-body panel-step-body">
                         <div id="editor">
-                            <p></p>
+                            <p>@Model.Detail</p>
                         </div>
                         <textarea name="Detail" id="text1" style="display:none;"></textarea>
                     </div>
 
                     @*第三步*@
                     <div class="panel-body panel-step-body">
-                        <input type="file" multiple="multiple" name="Images" class="form-control" />
+                        @foreach (var img in Model.ProductImg)
+                        {
+                        <img src="~/Images/ProductImg/@img.BigImage"  width="120" height="180"/>
+                        }
+                        <input id="file" type="file" multiple="multiple" name="Images" class="form-control" />
                     </div>
 
 

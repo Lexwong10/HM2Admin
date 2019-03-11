@@ -64,6 +64,8 @@
             });
         });
 
+
+
     </script>
 </head>
 <body>
@@ -74,6 +76,7 @@
         <input type="hidden" name="Page" value="1" />
     </form>
 
+    
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -85,7 +88,11 @@
                 </button>
                 <button type="button" class="btn btn-default">
                     <img src="/Images/7.png" height="16px" />
-                    &nbsp;&nbsp;批量删除
+                    &nbsp;&nbsp;
+                    <a href="javascript:if(confirm('确实要删除该商品吗?'))location='/Product/DeleteAll/'">
+                    批量删除
+                    </a>
+                    
                 </button>
                 <button type="button" class="btn btn-default">
                     <img src="/Images/plus.png" height="16px" />
@@ -179,7 +186,7 @@
                             @foreach (var p in Model)
                             {
                                 <tr>
-                                    <td align="center" class="td-checkbox"><input type="checkbox" name="id" /></td>
+                                    <td align="center" class="td-checkbox"><input type="checkbox" class="check" name="@p.Id" /></td>
                                     <td>
                                         <img src="~/Images/ProductImg/@((p.ProductImg.ToList()[4]).BigImage)" style="width:40px;height:50px;">
                                     </td>
@@ -195,6 +202,8 @@
                                     {<span class="text-danger">@{<text>下架</text>}</span>}
                                     else if (p.OnSale == 1)
                                     {<span class="text-success">@{<text>销售中</text>}</span>}
+                                    else if (p.OnSale == 2)
+                                    {<span class="text-active">@{<text>冻结</text>}</span>}
                                                 </td>
                                      <td width="120px">
                                             <span class="btn-group btn-group-xs">
@@ -204,7 +213,9 @@
                                             <button type="button" class="btn btn-default">
                                                 <a href="~/Product/Edit/@p.Id">编辑</a>
                                             </button>
-                                            <button type="button" class="btn btn-danger">删除</button>
+                                            <button type="button" class="btn btn-danger">
+                                                <a href="javascript:if(confirm('确实要删除该商品吗?'))location='/Product/Delete/@p.Id'">删除</a>
+                                            </button>
                                         </span>
                                     </td>
                                 </tr>

@@ -478,6 +478,8 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\EditById.cshtml" />
+    <Content Include="Views\Product\DeleteById.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
