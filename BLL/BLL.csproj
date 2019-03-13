@@ -43,6 +43,7 @@
     <Compile Include="AdminBLL.cs" />
     <Compile Include="BaseBLL.cs" />
     <Compile Include="MenuBLL.cs" />
+    <Compile Include="OrderBLL.cs" />
     <Compile Include="ProductBLL.cs" />
     <Compile Include="ProductColorBLL.cs" />
     <Compile Include="ProductImgBLL.cs" />

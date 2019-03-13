@@ -457,6 +457,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\LoginFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -480,6 +481,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\EditById.cshtml" />
     <Content Include="Views\Product\DeleteById.cshtml" />
+    <Content Include="Views\Order\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -35,5 +35,10 @@ namespace HM2Admin.Controllers
             Session.Add("admin", result.FirstOrDefault());
             return RedirectToAction("Index","Index");
         }
+
+        public ActionResult Logout() {
+            Session.Remove("admin");
+            return RedirectToAction("Login");
+        }
     }
 }
