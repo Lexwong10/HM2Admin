@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace HM2Admin.Controllers
 {
+    [Filters.LoginFilter]
     public class ProductController : Controller
     {
         public IProductBLL productBLL = new ProductBLL();
